@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/project/**",
+                "${workspaceFolder}/tools/**",
+                "${workspaceFolder}/build"
+            ],
+            "defines": [],
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

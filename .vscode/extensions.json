@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "ms-vscode.cpptools-extension-pack",
+        "augustocdias.tasks-shell-input",
+        "ms-vscode.cpptools-themes",
+        "marus25.cortex-debug"
+    ]
+}

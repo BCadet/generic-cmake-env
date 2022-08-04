@@ -1,0 +1,4 @@
+{
+    "terminal.integrated.inheritEnv": true,
+    "terminal.integrated.defaultProfile.linux": "bash",
+}

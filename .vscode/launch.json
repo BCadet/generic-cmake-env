@@ -1,0 +1,114 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch (start server)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "${input:binaries}",
+            "cwd": "${workspaceRoot}",
+            "interface": "swd",
+            "internalConsoleOptions": "openOnSessionStart",
+            // "preLaunchTask": "buildTask",
+            "servertype": "openocd",
+            "runToEntryPoint": "main",
+            "svdFile": "${input:SVDfile}",
+            "configFiles": [
+                "${workspaceRoot}/project/openocd.cfg",
+            ],
+            "gdbPath": "${input:toolchain}",
+        },
+        {
+            "name": "Attach (start server)",
+            "type": "cortex-debug",
+            "request": "attach",
+            "executable": "${input:binaries}",
+            "cwd": "${workspaceRoot}",
+            "interface": "swd",
+            "internalConsoleOptions": "openOnSessionStart",
+            "servertype": "openocd",
+            "runToEntryPoint": "main",
+            "svdFile": "${input:SVDfile}",
+            "configFiles": [
+                "${workspaceRoot}/project/openocd.cfg",
+            ],
+            "gdbPath": "${input:toolchain}",
+        },
+        {
+            "name": "Launch (connect server)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "${input:binaries}",
+            "cwd": "${workspaceRoot}",
+            "interface": "swd",
+            "internalConsoleOptions": "openOnSessionStart",
+            "preLaunchTask": "buildTask",
+            "servertype": "external",
+            "gdbTarget": "${input:gdbTarget}",
+            "runToEntryPoint": "main",
+            "svdFile": "${input:SVDfile}",
+            "configFiles": [
+                "${workspaceRoot}/project/openocd.cfg",
+            ],
+            "gdbPath": "${input:toolchain}",
+        },
+        {
+            "name": "Attach (connect server)",
+            "type": "cortex-debug",
+            "request": "attach",
+            "executable": "${input:binaries}",
+            "cwd": "${workspaceRoot}",
+            "interface": "swd",
+            "internalConsoleOptions": "openOnSessionStart",
+            "servertype": "external",
+            "gdbTarget": "${input:gdbTarget}",
+            "runToEntryPoint": "main",
+            "svdFile": "${input:SVDfile}",
+            "configFiles": [
+                "${workspaceRoot}/project/openocd.cfg",
+            ],
+            "gdbPath": "${input:toolchain}",
+        },
+    ],
+    "inputs": [
+        {
+            "id": "toolchain",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "grep CMAKE_DEBUGGER build/CMakeCache.txt | cut -d \"=\" -f2",
+                "useSingleResult": true,
+                "cwd": "${workspaceFolder}",
+            }
+        },
+        {
+            "id": "binaries",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "find build -maxdepth 1 -perm -111 -type f",
+                "useSingleResult": true,
+                "cwd": "${workspaceFolder}",
+            }
+        },
+        {
+            "id": "SVDfile",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "find project -maxdepth 1 -type f -name *.svd",
+                "useSingleResult": true,
+                "cwd": "${workspaceFolder}",
+            }
+        },
+        {
+            "id": "gdbTarget",
+            "type": "promptString",
+            "description": "openocd IP:PORT",
+            "default": "localhost:3333"
+        },
+    ]
+}
