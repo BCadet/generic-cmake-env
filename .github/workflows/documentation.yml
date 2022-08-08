@@ -14,6 +14,6 @@ jobs:
         if: always()
         with:
           name: documentation
-          path: documentation
+          path: project/documentation
 
       - run: echo "🎉 finished !"
