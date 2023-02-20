@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  vscode:
+    image: generic-cmake-env
+    build: 
+      context: ..
+      dockerfile: Dockerfile
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - ${localWorkspaceFolder}:/${localWorkspaceFolderBasename}
+    devices:
+      - ${serial_PATH}
+
+  openocd:
+    image: openocd:v0.11.0
+    container_name: generic-cmake-env-openocd
+    volumes:
+      - ${localWorkspaceFolder}/project/openocd.cfg:/openocd.cfg
+    devices:
+      - ${stlink_PATH}
+    expose:
+      - 3333
+      - 4444
+      - 6666
+    command: [-f, /openocd.cfg]
+
+  logic:
+    image: ghcr.io/bcadet/docker-logic2:main
+    container_name: generic-cmake-env-logic
+    ports:
+      - 8080:8080
+    privileged: True
+    volumes:
+      - ${localWorkspaceFolder}/logic2-presets:/root/logic2-presets

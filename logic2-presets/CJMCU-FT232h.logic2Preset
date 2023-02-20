@@ -1,0 +1,777 @@
+{
+    "version": 11,
+    "data": {
+        "presetName": "CJMCU-FT232h",
+        "deviceType": "Logic",
+        "deviceSettings": {
+            "enabledChannels": [
+                {
+                    "type": "Digital",
+                    "index": 0
+                },
+                {
+                    "type": "Digital",
+                    "index": 1
+                },
+                {
+                    "type": "Digital",
+                    "index": 2
+                },
+                {
+                    "type": "Digital",
+                    "index": 3
+                },
+                {
+                    "type": "Digital",
+                    "index": 4
+                },
+                {
+                    "type": "Digital",
+                    "index": 5
+                },
+                {
+                    "type": "Digital",
+                    "index": 6
+                },
+                {
+                    "type": "Digital",
+                    "index": 7
+                }
+            ],
+            "sampleRate": {
+                "digital": 4000000
+            }
+        },
+        "captureSettings": {
+            "bufferSizeMb": 15360,
+            "captureMode": "Circular",
+            "stopAfterSeconds": 100,
+            "trimAfterCapture": false,
+            "trimTimeSeconds": 5,
+            "digitalTriggerSettings": {
+                "type": {
+                    "mode": "Edge",
+                    "name": "Falling",
+                    "pattern": "Falling"
+                },
+                "timeAfterTriggerToStop": 1,
+                "linkedChannels": [],
+                "duration": {
+                    "min": 0.001,
+                    "max": 0.01
+                },
+                "selectedChannel": {
+                    "category": "legacy",
+                    "type": "Digital",
+                    "deviceChannel": 7
+                }
+            },
+            "glitchFilter": {
+                "enabled": false,
+                "channels": []
+            }
+        },
+        "analyzers": [
+            {
+                "color": "#D881F7",
+                "displayRadix": "Hexadecimal",
+                "name": "I2C",
+                "settings": [
+                    {
+                        "title": "SDA",
+                        "tooltip": "Serial Data Line",
+                        "disabled": false,
+                        "setting": {
+                            "type": "Channel",
+                            "channelRequired": true,
+                            "value": 2
+                        }
+                    },
+                    {
+                        "title": "SCL",
+                        "tooltip": "Serial Clock Line",
+                        "disabled": false,
+                        "setting": {
+                            "type": "Channel",
+                            "channelRequired": true,
+                            "value": 6
+                        }
+                    }
+                ],
+                "showInDataTable": true,
+                "streamToTerminal": true,
+                "type": "I2C",
+                "nodeId": 10017
+            },
+            {
+                "color": "#95A0B4",
+                "displayRadix": "Hexadecimal",
+                "name": "SPI",
+                "settings": [
+                    {
+                        "title": "MOSI",
+                        "tooltip": "Master Out, Slave In",
+                        "disabled": false,
+                        "setting": {
+                            "type": "Channel",
+                            "channelRequired": false,
+                            "value": 4
+                        }
+                    },
+                    {
+                        "title": "MISO",
+                        "tooltip": "Master In, Slave Out",
+                        "disabled": false,
+                        "setting": {
+                            "type": "Channel",
+                            "channelRequired": false,
+                            "value": 2
+                        }
+                    },
+                    {
+                        "title": "Clock",
+                        "tooltip": "Clock (CLK)",
+                        "disabled": false,
+                        "setting": {
+                            "type": "Channel",
+                            "channelRequired": true,
+                            "value": 6
+                        }
+                    },
+                    {
+                        "title": "Enable",
+                        "tooltip": "Enable (SS, Slave Select)",
+                        "disabled": false,
+                        "setting": {
+                            "type": "Channel",
+                            "channelRequired": false,
+                            "value": 0
+                        }
+                    },
+                    {
+                        "title": "Significant Bit",
+                        "tooltip": "",
+                        "disabled": false,
+                        "setting": {
+                            "type": "NumberList",
+                            "options": [
+                                {
+                                    "dropdownText": "Most Significant Bit First (Standard)",
+                                    "dropdownTooltip": "Select if the most significant bit or least significant bit is transmitted first",
+                                    "value": 0
+                                },
+                                {
+                                    "dropdownText": "Least Significant Bit First",
+                                    "dropdownTooltip": "",
+                                    "value": 1
+                                }
+                            ],
+                            "value": 0
+                        }
+                    },
+                    {
+                        "title": "Bits per Transfer",
+                        "tooltip": "",
+                        "disabled": false,
+                        "setting": {
+                            "type": "NumberList",
+                            "options": [
+                                {
+                                    "dropdownText": "1 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 1
+                                },
+                                {
+                                    "dropdownText": "2 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 2
+                                },
+                                {
+                                    "dropdownText": "3 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 3
+                                },
+                                {
+                                    "dropdownText": "4 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 4
+                                },
+                                {
+                                    "dropdownText": "5 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 5
+                                },
+                                {
+                                    "dropdownText": "6 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 6
+                                },
+                                {
+                                    "dropdownText": "7 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 7
+                                },
+                                {
+                                    "dropdownText": "8 Bits per Transfer (Standard)",
+                                    "dropdownTooltip": "",
+                                    "value": 8
+                                },
+                                {
+                                    "dropdownText": "9 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 9
+                                },
+                                {
+                                    "dropdownText": "10 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 10
+                                },
+                                {
+                                    "dropdownText": "11 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 11
+                                },
+                                {
+                                    "dropdownText": "12 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 12
+                                },
+                                {
+                                    "dropdownText": "13 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 13
+                                },
+                                {
+                                    "dropdownText": "14 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 14
+                                },
+                                {
+                                    "dropdownText": "15 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 15
+                                },
+                                {
+                                    "dropdownText": "16 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 16
+                                },
+                                {
+                                    "dropdownText": "17 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 17
+                                },
+                                {
+                                    "dropdownText": "18 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 18
+                                },
+                                {
+                                    "dropdownText": "19 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 19
+                                },
+                                {
+                                    "dropdownText": "20 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 20
+                                },
+                                {
+                                    "dropdownText": "21 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 21
+                                },
+                                {
+                                    "dropdownText": "22 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 22
+                                },
+                                {
+                                    "dropdownText": "23 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 23
+                                },
+                                {
+                                    "dropdownText": "24 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 24
+                                },
+                                {
+                                    "dropdownText": "25 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 25
+                                },
+                                {
+                                    "dropdownText": "26 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 26
+                                },
+                                {
+                                    "dropdownText": "27 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 27
+                                },
+                                {
+                                    "dropdownText": "28 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 28
+                                },
+                                {
+                                    "dropdownText": "29 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 29
+                                },
+                                {
+                                    "dropdownText": "30 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 30
+                                },
+                                {
+                                    "dropdownText": "31 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 31
+                                },
+                                {
+                                    "dropdownText": "32 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 32
+                                },
+                                {
+                                    "dropdownText": "33 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 33
+                                },
+                                {
+                                    "dropdownText": "34 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 34
+                                },
+                                {
+                                    "dropdownText": "35 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 35
+                                },
+                                {
+                                    "dropdownText": "36 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 36
+                                },
+                                {
+                                    "dropdownText": "37 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 37
+                                },
+                                {
+                                    "dropdownText": "38 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 38
+                                },
+                                {
+                                    "dropdownText": "39 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 39
+                                },
+                                {
+                                    "dropdownText": "40 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 40
+                                },
+                                {
+                                    "dropdownText": "41 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 41
+                                },
+                                {
+                                    "dropdownText": "42 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 42
+                                },
+                                {
+                                    "dropdownText": "43 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 43
+                                },
+                                {
+                                    "dropdownText": "44 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 44
+                                },
+                                {
+                                    "dropdownText": "45 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 45
+                                },
+                                {
+                                    "dropdownText": "46 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 46
+                                },
+                                {
+                                    "dropdownText": "47 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 47
+                                },
+                                {
+                                    "dropdownText": "48 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 48
+                                },
+                                {
+                                    "dropdownText": "49 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 49
+                                },
+                                {
+                                    "dropdownText": "50 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 50
+                                },
+                                {
+                                    "dropdownText": "51 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 51
+                                },
+                                {
+                                    "dropdownText": "52 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 52
+                                },
+                                {
+                                    "dropdownText": "53 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 53
+                                },
+                                {
+                                    "dropdownText": "54 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 54
+                                },
+                                {
+                                    "dropdownText": "55 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 55
+                                },
+                                {
+                                    "dropdownText": "56 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 56
+                                },
+                                {
+                                    "dropdownText": "57 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 57
+                                },
+                                {
+                                    "dropdownText": "58 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 58
+                                },
+                                {
+                                    "dropdownText": "59 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 59
+                                },
+                                {
+                                    "dropdownText": "60 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 60
+                                },
+                                {
+                                    "dropdownText": "61 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 61
+                                },
+                                {
+                                    "dropdownText": "62 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 62
+                                },
+                                {
+                                    "dropdownText": "63 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 63
+                                },
+                                {
+                                    "dropdownText": "64 Bits per Transfer",
+                                    "dropdownTooltip": "",
+                                    "value": 64
+                                }
+                            ],
+                            "value": 8
+                        }
+                    },
+                    {
+                        "title": "Clock State",
+                        "tooltip": "",
+                        "disabled": false,
+                        "setting": {
+                            "type": "NumberList",
+                            "options": [
+                                {
+                                    "dropdownText": "Clock is Low when inactive (CPOL = 0)",
+                                    "dropdownTooltip": "CPOL = 0 (Clock Polarity)",
+                                    "value": 0
+                                },
+                                {
+                                    "dropdownText": "Clock is High when inactive (CPOL = 1)",
+                                    "dropdownTooltip": "CPOL = 1 (Clock Polarity)",
+                                    "value": 1
+                                }
+                            ],
+                            "value": 0
+                        }
+                    },
+                    {
+                        "title": "Clock Phase",
+                        "tooltip": "",
+                        "disabled": false,
+                        "setting": {
+                            "type": "NumberList",
+                            "options": [
+                                {
+                                    "dropdownText": "Data is Valid on Clock Leading Edge (CPHA = 0)",
+                                    "dropdownTooltip": "CPHA = 0 (Clock Phase)",
+                                    "value": 0
+                                },
+                                {
+                                    "dropdownText": "Data is Valid on Clock Trailing Edge (CPHA = 1)",
+                                    "dropdownTooltip": "CPHA = 1 (Clock Phase)",
+                                    "value": 1
+                                }
+                            ],
+                            "value": 0
+                        }
+                    },
+                    {
+                        "title": "Enable Line",
+                        "tooltip": "",
+                        "disabled": false,
+                        "setting": {
+                            "type": "NumberList",
+                            "options": [
+                                {
+                                    "dropdownText": "Enable line is Active Low (Standard)",
+                                    "dropdownTooltip": "",
+                                    "value": 0
+                                },
+                                {
+                                    "dropdownText": "Enable line is Active High",
+                                    "dropdownTooltip": "",
+                                    "value": 1
+                                }
+                            ],
+                            "value": 0
+                        }
+                    }
+                ],
+                "showInDataTable": true,
+                "streamToTerminal": true,
+                "type": "SPI",
+                "nodeId": 10019
+            }
+        ],
+        "renderViewState": {
+            "leftEdgeTimeSec": 0,
+            "timeSecPerPixel": 0.000104425023788967
+        },
+        "matchTracesColor": true,
+        "highLevelAnalyzers": [],
+        "rowsSettings": [
+            {
+                "id": "4214bde1-64ac-4c9d-b44b-dff769386f92",
+                "height": 100,
+                "isMarkedHidden": false,
+                "type": "channel",
+                "name": "CS",
+                "channel": {
+                    "category": "legacy",
+                    "type": "Digital",
+                    "deviceChannel": 0
+                }
+            },
+            {
+                "id": "6b7ac77d-67aa-4d66-acbb-37fd3a0e8700",
+                "height": 100,
+                "isMarkedHidden": false,
+                "type": "channel",
+                "name": "MISO/SDA",
+                "channel": {
+                    "category": "legacy",
+                    "type": "Digital",
+                    "deviceChannel": 2
+                }
+            },
+            {
+                "id": "6a920104-5380-4f8d-9bda-2b602c6a0c05",
+                "height": 100,
+                "isMarkedHidden": false,
+                "type": "channel",
+                "name": "MOSI/SDA",
+                "channel": {
+                    "category": "legacy",
+                    "type": "Digital",
+                    "deviceChannel": 4
+                }
+            },
+            {
+                "id": "b68aa388-ec37-4139-a990-07b5d438297f",
+                "height": 100,
+                "isMarkedHidden": false,
+                "type": "channel",
+                "name": "SCK/SCL",
+                "channel": {
+                    "category": "legacy",
+                    "type": "Digital",
+                    "deviceChannel": 6
+                }
+            },
+            {
+                "id": "45ba2fa2-e229-4a66-bb6b-442000dad4b3",
+                "height": 100,
+                "isMarkedHidden": false,
+                "type": "channel",
+                "name": "AC0",
+                "channel": {
+                    "category": "legacy",
+                    "type": "Digital",
+                    "deviceChannel": 1
+                }
+            },
+            {
+                "id": "3e52202f-ecfe-4ad5-9a95-d4fe66026f19",
+                "height": 100,
+                "isMarkedHidden": false,
+                "type": "channel",
+                "name": "AC1",
+                "channel": {
+                    "category": "legacy",
+                    "type": "Digital",
+                    "deviceChannel": 3
+                }
+            },
+            {
+                "id": "5f4a957d-d0ed-4743-82ab-3ae038b84dd2",
+                "height": 100,
+                "isMarkedHidden": false,
+                "type": "channel",
+                "name": "AC2",
+                "channel": {
+                    "category": "legacy",
+                    "type": "Digital",
+                    "deviceChannel": 5
+                }
+            },
+            {
+                "id": "e1865c26-ca2f-4312-9713-c90a4ba43e5f",
+                "height": 101,
+                "isMarkedHidden": false,
+                "type": "channel",
+                "name": "AC3",
+                "channel": {
+                    "category": "legacy",
+                    "type": "Digital",
+                    "deviceChannel": 7
+                }
+            }
+        ],
+        "sidebarWidth": 314,
+        "channelLabelWidth": 180,
+        "analyzerTrigger": {
+            "settings": {
+                "enabled": true,
+                "searchQuery": "0xC0",
+                "holdoffSeconds": 0.2
+            },
+            "analyzer": {
+                "type": "LowLevelAnalyzer",
+                "nodeId": 10017
+            }
+        },
+        "hints": {
+            "mainScrollBar": true
+        },
+        "dataTable": {
+            "columns": {
+                "analyzerIdentifier": {
+                    "isActive": true,
+                    "width": 18,
+                    "isDefault": true,
+                    "baseKey": "analyzerIdentifier",
+                    "excludeFromSearch": true
+                },
+                "frameType": {
+                    "isActive": true,
+                    "width": 75,
+                    "isDefault": true,
+                    "baseKey": "frameType",
+                    "excludeFromSearch": false
+                },
+                "start": {
+                    "isActive": true,
+                    "width": 110,
+                    "isDefault": true,
+                    "baseKey": "start",
+                    "excludeFromSearch": true
+                },
+                "duration": {
+                    "isActive": true,
+                    "width": 80,
+                    "isDefault": true,
+                    "baseKey": "duration",
+                    "excludeFromSearch": true
+                },
+                "data_value": {
+                    "width": 234,
+                    "baseKey": "value",
+                    "isActive": false
+                },
+                "data_data": {
+                    "width": 75,
+                    "baseKey": "data",
+                    "isActive": false
+                },
+                "data_error": {
+                    "width": 75,
+                    "baseKey": "error",
+                    "isActive": false
+                },
+                "data_mosi": {
+                    "width": 75,
+                    "baseKey": "mosi",
+                    "isActive": true
+                },
+                "data_miso": {
+                    "width": 75,
+                    "baseKey": "miso",
+                    "isActive": true
+                },
+                "data_ack": {
+                    "width": 75,
+                    "baseKey": "ack",
+                    "isActive": false
+                },
+                "data_address": {
+                    "width": 75,
+                    "baseKey": "address",
+                    "isActive": false
+                },
+                "data_read": {
+                    "width": 75,
+                    "baseKey": "read",
+                    "isActive": false
+                }
+            }
+        },
+        "timeManager": {
+            "t0": {
+                "type": "trigger"
+            }
+        },
+        "timeOptions": {
+            "showLocalTime": true,
+            "useIsoFormat": false,
+            "autoSelectDigitalTriggerMode": true,
+            "autoSelectAnalyzerTriggerMode": true
+        }
+    }
+}

@@ -4,11 +4,10 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/project/**",
-                "${workspaceFolder}/tools/**",
                 "${workspaceFolder}/build"
             ],
             "defines": [],
-            "intelliSenseMode": "linux-gcc-x64"
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
         }
     ],
     "version": 4

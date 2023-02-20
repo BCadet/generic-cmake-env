@@ -1,0 +1,6 @@
+x-hardware:
+  stlink:
+    device_type: hidraw
+    usb_vendor: 0x03eb
+    usb_product: 0x2141
+    usb_serial: J42700054033
